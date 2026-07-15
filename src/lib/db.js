@@ -19,6 +19,7 @@ async function kvGet(key) {
 
   const res = await fetch(`${url}/get/${key}`, {
     headers: { Authorization: `Bearer ${token}` },
+    cache: 'no-store'
   });
 
   const json = await res.json();

@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { updateReservationStatus } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 const VALID_STATUSES = ['Neu', 'Bestätigt', 'Abgeschlossen', 'Storniert'];
 
 export async function PATCH(request, { params }) {
