@@ -86,7 +86,7 @@
   --font-size-xl: 1.5rem;
   --font-size-2xl: 2rem;
   --font-size-3xl: 2.5rem;
-  --font-size-hero: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-hero: clamp(2rem, 5vw, 4.5rem);
 
   /* Container */
   --container-max: 1200px;
@@ -374,5 +374,10 @@ img {
 
   .glass-card {
     padding: var(--space-lg);
+  }
+
+  .btn {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-sm);
   }
 }

@@ -325,11 +325,20 @@
 }
 
 @media (max-width: 768px) {
+  .heroContent {
+    gap: var(--space-md);
+  }
+  .heroSubtitle {
+    font-size: var(--font-size-base);
+  }
   .spezialGrid {
     grid-template-columns: 1fr;
   }
   .contactInfoGrid {
     grid-template-columns: 1fr;
+  }
+  .galleryGrid {
+    gap: var(--space-md);
   }
 }
 
