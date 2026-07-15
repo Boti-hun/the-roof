@@ -105,19 +105,21 @@ export default function HomePage() {
           <h2 className="section-title">Unsere Leistungen</h2>
           <p className="section-subtitle">Professionelle Dachdeckerarbeiten für Wien und Umgebung</p>
         </div>
-        <div className={styles.servicesGrid}>
-          {SERVICES.map((s, idx) => {
-            const Icon = s.icon;
-            return (
-              <div key={idx} className={`glass-card reveal ${styles.serviceCard}`} style={{ opacity: 0, animationDelay: `${(idx % 4) * 0.1}s` }}>
-                <div className={styles.serviceIconWrapper}>
-                  <Icon size={28} />
+        <div className={`reveal ${styles.servicesMarqueeWrapper}`} style={{ opacity: 0 }}>
+          <div className={styles.servicesMarquee}>
+            {[...SERVICES, ...SERVICES, ...SERVICES, ...SERVICES].map((s, idx) => {
+              const Icon = s.icon;
+              return (
+                <div key={idx} className={`glass-card ${styles.serviceCard}`}>
+                  <div className={styles.serviceIconWrapper}>
+                    <Icon size={28} />
+                  </div>
+                  <h3 className={styles.serviceTitle}>{s.title}</h3>
+                  <p className={styles.serviceDescription}>{s.desc}</p>
                 </div>
-                <h3 className={styles.serviceTitle}>{s.title}</h3>
-                <p className={styles.serviceDescription}>{s.desc}</p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
