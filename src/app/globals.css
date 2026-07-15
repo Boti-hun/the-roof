@@ -360,7 +360,7 @@ img {
 /* Responsive */
 @media (max-width: 768px) {
   :root {
-    --space-4xl: 3rem;
+    --space-4xl: 3.5rem;
     --space-3xl: 2rem;
   }
 
@@ -369,6 +369,10 @@ img {
   }
 
   .container {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-lg);
+  }
+
+  .glass-card {
+    padding: var(--space-lg);
   }
 }

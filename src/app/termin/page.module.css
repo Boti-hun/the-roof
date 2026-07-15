@@ -444,6 +444,12 @@
   .locationGrid {
     grid-template-columns: 1fr;
   }
+  .locationCard {
+    padding: var(--space-xl);
+  }
+  .serviceCard {
+    padding: var(--space-lg);
+  }
   .progressLine {
     width: 30px;
   }
