@@ -32,7 +32,7 @@ export default function AdminPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'TheRoof' && password === 'roof2025') {
+    if (username === 'admin' && password === 'Admin2026!') {
       sessionStorage.setItem('theroof_admin', 'true');
       setLoggedIn(true);
       setLoginError('');
