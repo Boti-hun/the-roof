@@ -89,16 +89,15 @@
   width: 100%;
   position: relative;
   margin-top: var(--space-2xl);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   padding: var(--space-md) 0;
 }
 
 .servicesMarquee {
   display: flex;
+  align-items: stretch;
   gap: var(--space-lg);
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 70s linear infinite;
 }
 
 .servicesMarquee:hover {
