@@ -1,0 +1,231 @@
+.loginWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-2xl);
+}
+
+.loginTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xl);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  text-align: left;
+}
+
+.dashboardWrapper {
+  padding-top: 100px; /* Header clearance */
+  padding-bottom: var(--space-4xl);
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.statCard {
+  text-align: center;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.statNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filterBar {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.searchWrapper {
+  position: relative;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.searchInput {
+  padding-left: 44px;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tableHeader {
+  background: var(--bg-secondary);
+}
+
+.th {
+  padding: var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.td {
+  padding: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--font-size-sm);
+  vertical-align: middle;
+}
+
+.tr:hover .td {
+  background: var(--bg-card-hover);
+}
+
+.actionCell {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.actionBtn {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.actionBtnConfirm {
+  background: var(--status-success-bg);
+  color: var(--status-success);
+  border-color: hsla(145, 70%, 45%, 0.2);
+}
+
+.actionBtnConfirm:hover {
+  background: var(--status-success);
+  color: white;
+}
+
+.actionBtnCancel {
+  background: var(--status-error-bg);
+  color: var(--status-error);
+  border-color: hsla(0, 85%, 60%, 0.2);
+}
+
+.actionBtnCancel:hover {
+  background: var(--status-error);
+  color: white;
+}
+
+.actionBtnComplete {
+  background: var(--accent-primary-subtle);
+  color: var(--accent-primary);
+  border-color: hsla(16, 75%, 55%, 0.2);
+}
+
+.actionBtnComplete:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .filterBar {
+    flex-direction: column;
+  }
+  
+  .searchWrapper {
+    max-width: 100%;
+  }
+
+  /* Mobile Table -> Cards */
+  .tableHeader {
+    display: none;
+  }
+  
+  .tr {
+    display: block;
+    padding: var(--space-md);
+    border-top: 1px solid var(--border-subtle);
+  }
+  
+  .td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: var(--space-xs) 0;
+  }
+  
+  .td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-right: var(--space-md);
+  }
+  
+  .actionCell {
+    justify-content: flex-end;
+    margin-top: var(--space-sm);
+  }
+}

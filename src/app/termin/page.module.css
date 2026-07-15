@@ -1,0 +1,450 @@
+.pageWrapper {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: var(--space-4xl);
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-3xl);
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.progressCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-base);
+  background: var(--bg-card);
+}
+
+.progressCircle.active {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+  color: white;
+  box-shadow: 0 0 15px var(--accent-primary-glow);
+}
+
+.progressCircle.completed {
+  border-color: var(--status-success);
+  background: var(--status-success);
+  color: white;
+}
+
+.progressLine {
+  width: 60px;
+  height: 2px;
+  background: var(--border-subtle);
+  margin-bottom: 24px;
+  transition: background var(--transition-base);
+}
+
+.progressLine.active {
+  background: var(--accent-primary);
+}
+
+.progressLine.completed {
+  background: var(--status-success);
+}
+
+.progressLabel {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.progressLabel.active,
+.progressLabel.completed {
+  color: var(--text-primary);
+}
+
+.stepContent {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.stepTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+/* Service Grid */
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.serviceCard {
+  cursor: pointer;
+  text-align: center;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.serviceIcon {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.serviceCard:hover .serviceIcon {
+  color: var(--accent-primary);
+}
+
+.serviceCardSelected {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px var(--accent-primary), var(--shadow-glow);
+  position: relative;
+}
+
+.serviceCardSelected .serviceIcon {
+  color: var(--accent-primary);
+}
+
+.serviceCardCheck {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--accent-primary);
+  animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Location Grid */
+.locationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.locationCard {
+  cursor: pointer;
+  padding: var(--space-2xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.locationCardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.locationCardDesc {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.locationCardSelected {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px var(--accent-primary), var(--shadow-glow);
+}
+
+.locationCardSelected .serviceIcon {
+  color: var(--accent-primary);
+}
+
+/* Time Grid */
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: var(--space-sm);
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: var(--space-sm);
+}
+
+.timeGrid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.timeGrid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.timeGrid::-webkit-scrollbar-thumb {
+  background-color: var(--border-medium);
+  border-radius: 10px;
+}
+
+.timeBtn {
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timeBtn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.timeBtnSelected {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
+.timeBtnSelected:hover {
+  color: white;
+}
+
+/* Forms */
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  position: relative;
+}
+
+.formRowDouble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.formLabel {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Autocomplete & Popups */
+.addressSuggestions,
+.dropdownPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  margin-top: 4px;
+  z-index: 1000;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.addressItem,
+.dropdownItem {
+  padding: var(--space-md);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background var(--transition-fast);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.addressItem:last-child,
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.addressItem:hover,
+.dropdownItem:hover {
+  background: var(--bg-card-hover);
+}
+
+/* Phone Input */
+.phoneGroup {
+  display: flex;
+  gap: var(--space-sm);
+  position: relative;
+}
+
+.phoneCountryBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0 var(--space-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.phoneCountryBtn:hover {
+  border-color: var(--accent-primary);
+}
+
+.phoneCountryBtnPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  margin-top: 4px;
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Time Dropdown */
+.timeDropdownBtn {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeDropdownBtn:hover {
+  border-color: var(--accent-primary);
+}
+
+.timeDropdownBtnSelected {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px var(--accent-primary);
+}
+
+.timeDropdownPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  margin-top: 4px;
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-md);
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Buttons */
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2xl);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-xl);
+}
+
+/* Confirmation */
+.confirmation {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.confirmationTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--status-success);
+}
+
+.summaryCard {
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  margin-top: var(--space-md);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.summaryRow:last-child {
+  border-bottom: none;
+}
+
+.summaryLabel {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.summaryValue {
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: right;
+  max-width: 60%;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .serviceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .formRowDouble {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+  .locationGrid {
+    grid-template-columns: 1fr;
+  }
+  .progressLine {
+    width: 30px;
+  }
+}
