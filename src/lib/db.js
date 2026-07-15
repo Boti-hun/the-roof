@@ -17,28 +17,37 @@ async function kvGet(key) {
   const url = getKVUrl();
   const token = getKVToken();
 
-  const res = await fetch(`${url}/get/${key}`, {
-    headers: { Authorization: `Bearer ${token}` },
-    cache: 'no-store'
-  });
+  try {
+    const res = await fetch(`${url}/`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(['GET', key]),
+      cache: 'no-store'
+    });
 
-  const json = await res.json();
-
-  if (!json.result) return null;
-  return JSON.parse(json.result);
+    const json = await res.json();
+    if (!json.result) return null;
+    return JSON.parse(json.result);
+  } catch (err) {
+    console.error('KV Get Error:', err);
+    return null;
+  }
 }
 
 async function kvSet(key, value) {
   const url = getKVUrl();
   const token = getKVToken();
 
-  await fetch(`${url}/set/${key}`, {
+  await fetch(`${url}/`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify([JSON.stringify(value)]),
+    body: JSON.stringify(['SET', key, JSON.stringify(value)]),
   });
 }
 
@@ -72,6 +81,11 @@ export async function getReservations() {
     reservations = await readData();
   }
 
+  if (!Array.isArray(reservations)) {
+    console.error('Data corrupted, resetting reservations array.');
+    reservations = [];
+  }
+
   return reservations.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
@@ -98,11 +112,19 @@ export async function addReservation(data) {
 
   if (useKV) {
     reservations = (await kvGet('reservations')) || [];
-    reservations.push(reservation);
-    await kvSet('reservations', reservations);
   } else {
     reservations = await readData();
-    reservations.push(reservation);
+  }
+
+  if (!Array.isArray(reservations)) {
+    reservations = [];
+  }
+
+  reservations.push(reservation);
+
+  if (useKV) {
+    await kvSet('reservations', reservations);
+  } else {
     await writeData(reservations);
   }
 
@@ -120,6 +142,10 @@ export async function updateReservationStatus(id, status) {
     reservations = (await kvGet('reservations')) || [];
   } else {
     reservations = await readData();
+  }
+
+  if (!Array.isArray(reservations)) {
+    return null;
   }
 
   const reservation = reservations.find((r) => String(r.id) === String(id));
