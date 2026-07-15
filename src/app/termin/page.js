@@ -225,7 +225,7 @@ export default function BookingWizard() {
                 onChange={(e) => updateData('date', e.target.value)}
               />
             </div>
-            <div className={styles.formRowDouble}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className={styles.formRow}>
                 <label className={styles.formLabel}>Stunde</label>
                 <select className="form-select" value={data.timeHour} onChange={e => updateData('timeHour', e.target.value)}>

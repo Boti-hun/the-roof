@@ -447,4 +447,12 @@
   .progressLine {
     width: 30px;
   }
+  .buttonRow {
+    flex-direction: column-reverse;
+    gap: var(--space-md);
+  }
+  .buttonRow button {
+    width: 100%;
+    justify-content: center;
+  }
 }
