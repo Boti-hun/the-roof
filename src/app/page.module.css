@@ -338,14 +338,24 @@
     grid-template-columns: 1fr;
   }
   .galleryGrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: var(--space-md);
+    padding-bottom: var(--space-md);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .galleryGrid::-webkit-scrollbar {
+    display: none;
+  }
+  .galleryCard {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .galleryGrid {
-    grid-template-columns: 1fr;
-  }
   .heroButtons {
     flex-direction: column;
     width: 100%;
